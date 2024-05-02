@@ -3,16 +3,15 @@
         <div :class="`bg-navy-700 text-pink w-64 py-7 px-2 absolute inset-y-0 left-0 transform ${!isOpen ? '-translate-x-full' : ''} transition duration-200 ease-in-out flex flex-col`">
             <ul class="flex-grow space-y-6">
                 <li><a></a></li>
-                <li><a href="#" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-navy-500">Home</a></li>
-                <li><a href="#" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-navy-500">Collection</a></li>
-                <li><a href="#" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-navy-500">Settings</a></li>
+                <li><a href="#" class="flex items-center py-2.5 px-4 rounded transition duration-200 hover:bg-navy-500"><HomeIcon class="h-4 w-4 mr-5"/>Home</a></li>
+                <li><a href="#" class="flex items-center py-2.5 px-4 rounded transition duration-200 hover:bg-navy-500"><FolderIcon class="h-4 w-4 mr-5"/>Collection</a></li>
+                <li><a href="#" class="flex items-center py-2.5 px-4 rounded transition duration-200 hover:bg-navy-500"><SettingsIcon class="h-4 w-4 mr-5"/>Settings</a></li>
             </ul>
-            <h1 class="text-3xl font-semibold text-center mt-auto">DECYPHR</h1>
+            <h1 class="text-3xl font-bold text-center mt-auto">DECYPHR</h1>
         </div>
-        <MenuIcon @click="toggleSidebar" class="text-pink hover:bg-navy-700 p-2 m-2 absolute h-10 w-10 top-0 left-0"></MenuIcon>
+        <MenuIcon @click="toggleSidebar" class="text-pink hover:bg-navy-700 cursor-pointer p-2 m-2 absolute h-10 w-10 top-0 left-0"></MenuIcon>
     </div>
 </template>
-
 
 <script setup lang="ts">
 import { ref } from 'vue';
