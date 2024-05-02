@@ -9,7 +9,7 @@
             </ul>
             <h1 class="text-3xl font-semibold text-center mt-auto">DECYPHR</h1>
         </div>
-        <button @click="toggleSidebar" class="text-pink hover:bg-navy-700 p-2 m-2 absolute top-0 left-0">Menu</button>
+        <MenuIcon @click="toggleSidebar" class="text-pink hover:bg-navy-700 p-2 m-2 absolute h-10 w-10 top-0 left-0"></MenuIcon>
     </div>
 </template>
 
@@ -17,10 +17,9 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import MenuIcon from '@/assets/icons/bars-solid.svg'
-
-components: {
-    MenuIcon
-}
+import HomeIcon from '@/assets/icons/house-chimney-solid.svg'
+import FolderIcon from '@/assets/icons/folder-closed-solid.svg'
+import SettingsIcon from '@/assets/icons/gear-solid.svg'
 
 const isOpen = ref(false);
 
