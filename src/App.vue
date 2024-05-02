@@ -9,6 +9,3 @@
 import Sidebar from './Sidebar.vue';
 import Recorder from './Recorder.vue';
 </script>
-
-<style scoped>
-</style>

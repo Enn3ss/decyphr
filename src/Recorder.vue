@@ -1,5 +1,5 @@
 <template>
-    <h1 class="flex text-2xl">Let's record this meeting<RecordIcon class="hover:scale-125 duration-200 cursor-pointer h-9 w-9 ml-10"/></h1>
+    <h1 class="flex text-2xl">Let's record this meeting<MicIcon class="hover:scale-125 duration-200 cursor-pointer h-9 w-9 ml-5"/></h1>
 </template>
 
 <script setup lang="ts">
