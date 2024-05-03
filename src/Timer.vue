@@ -27,40 +27,40 @@ const intervalId = ref<number | null>(null);
 const elapsedTime = ref(0);
 
 const timeDisplay = computed(() => {
-  const hours = Math.floor(elapsedTime.value / 3600);
-  const minutes = Math.floor((elapsedTime.value % 3600) / 60);
-  const seconds = elapsedTime.value % 60;
-  return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    const hours = Math.floor(elapsedTime.value / 3600);
+    const minutes = Math.floor((elapsedTime.value % 3600) / 60);
+    const seconds = elapsedTime.value % 60;
+    return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 });
 
 function startTimer() {
     // setInterval is a browser API that allows functions to execute repeatedly at the given interval
-  intervalId.value = window.setInterval(() => {
-    if (!isPaused.value) {
-      elapsedTime.value++;
-    }
-  }, 1000);
+    intervalId.value = window.setInterval(() => {
+        if (!isPaused.value) {
+            elapsedTime.value++;
+        }
+    }, 1000);
 }
 
 function togglePause() {
-  isPaused.value = !isPaused.value;
+    isPaused.value = !isPaused.value;
 }
 
 function stopTimer() {
-  if (intervalId.value) {
-    clearInterval(intervalId.value);
-    intervalId.value = null;
-    elapsedTime.value = 0;
-    isPaused.value = false;
-    emit('timer-stopped');
-  }
+    if (intervalId.value) {
+        clearInterval(intervalId.value);
+        intervalId.value = null;
+        elapsedTime.value = 0;
+        isPaused.value = false;
+        emit('timer-stopped');
+    }
 }
 
 startTimer();
 
 onUnmounted(() => {
-  if (intervalId.value) {
-    clearInterval(intervalId.value);
-  }
+    if (intervalId.value) {
+        clearInterval(intervalId.value);
+    }
 });
 </script>

@@ -8,8 +8,8 @@
         </div>
         <div v-else>
             <Timer
-            :message="timerMessage"
-            @timer-stopped="stopRecordingMeeting"/>
+                :message="timerMessage"
+                @timer-stopped="stopRecordingMeeting"/>
         </div>
     </div>
 </template>
