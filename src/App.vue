@@ -1,7 +1,7 @@
 <template>
   <div class="flex justify-center items-center h-screen">
-    <Sidebar />
-    <Recorder class="mx-auto" />
+    <Sidebar/>
+    <Recorder/>
   </div>
 </template>
 

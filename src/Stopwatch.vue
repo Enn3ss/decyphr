@@ -1,8 +1,15 @@
 <template>
     <div>
         <h1 class="flex items-center text-2xl">This meeting has been going on for {{ timeDisplay }}
-            <PauseIcon @click="togglePause" class="hover:scale-125 duration-200 cursor-pointer h-9 w-9 ml-5">{{ isPaused ? 'Resume' : 'Pause' }}</PauseIcon>
-            <StopIcon @click="stopTimer" class="hover:scale-125 duration-200 cursor-pointer h-9 w-9 ml-3"/>
+            <component 
+                :is="isPaused ? PlayIcon : PauseIcon"
+                @click="togglePause" 
+                class="hover:scale-125 duration-200 cursor-pointer h-9 w-9 ml-5">
+            </component>
+            <StopIcon 
+                @click="stopTimer" 
+                class="hover:scale-125 duration-200 cursor-pointer h-9 w-9 ml-3">
+            </StopIcon>
         </h1>
     </div>
 </template>
@@ -27,6 +34,7 @@ const timeDisplay = computed(() => {
     const seconds = Math.floor(elapsed.value / 1000) % 60;
     const minutes = Math.floor(elapsed.value / 60000) % 60;
     const hours = Math.floor(elapsed.value / 3600000);
+    // Format time string to 'HH:MM:SS' using string manipulation and padding methods
     return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 });
 
