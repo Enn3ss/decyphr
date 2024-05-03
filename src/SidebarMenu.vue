@@ -1,4 +1,5 @@
 <template>
+  <app-dialog v-model="isOpen" />
   <div class="flex h-full">
     <div
       :class="`bg-navy-700 text-pink w-64 py-7 px-2 absolute inset-y-0 left-0 transform 
@@ -45,6 +46,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import AppDialog from './DialogTest.vue'
 import MenuIcon from '@/assets/icons/bars-solid.svg'
 import HomeIcon from '@/assets/icons/house-chimney-solid.svg'
 import FolderIcon from '@/assets/icons/folder-closed-solid.svg'
