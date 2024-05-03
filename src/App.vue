@@ -1,11 +1,11 @@
 <template>
   <div class="flex justify-center items-center h-screen">
-    <Sidebar/>
-    <Recorder/>
+    <SidebarMenu />
+    <RecorderControl />
   </div>
 </template>
 
 <script setup lang="ts">
-import Sidebar from './Sidebar.vue';
-import Recorder from './Recorder.vue';
+import SidebarMenu from './SidebarMenu.vue';
+import RecorderControl from './RecorderControl.vue';
 </script>
