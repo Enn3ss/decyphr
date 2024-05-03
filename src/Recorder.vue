@@ -1,18 +1,15 @@
 <template>
     <div>
-        <div v-if="!isRecording" class="flex items-center">
+        <div v-if="!isRecordingMeeting" class="flex items-center">
             <h1 class="text-2xl">Let's record this meeting</h1>
             <MicIcon
-                @click="startRecording"
-                class="hover:scale-125 duration-200 cursor-pointer h-9 w-9 ml-5">
-            </MicIcon>
+                @click="startRecordingMeeting"
+                class="hover:scale-125 duration-200 cursor-pointer h-9 w-9 ml-5"/>
         </div>
         <div v-else>
-            <Stopwatch
-                :isPaused="isPaused"
-                @stopped="stopRecording"
-                @paused="togglePause">
-            </Stopwatch>
+            <Timer
+            :message="timerMessage"
+            @timer-stopped="stopRecordingMeeting"/>
         </div>
     </div>
 </template>
@@ -20,22 +17,16 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import MicIcon from '@/assets/icons/microphone-solid.svg';
-import Stopwatch from './Stopwatch.vue';
+import Timer from './Timer.vue';
 
-const isRecording = ref(false);
-const isPaused = ref(true);
+const isRecordingMeeting = ref(false);
+const timerMessage = "This meeting has been going on for ";
 
-function startRecording() {
-    isRecording.value = true;
-    isPaused.value = false; // Start the timer automatically
+function startRecordingMeeting() {
+    isRecordingMeeting.value = true;
 }
 
-function stopRecording() {
-    isRecording.value = false;
-    isPaused.value = true; // Reset pause state
-}
-
-function togglePause() {
-    isPaused.value = !isPaused.value;
+function stopRecordingMeeting() {
+    isRecordingMeeting.value = false;
 }
 </script>
