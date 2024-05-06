@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      v-if="!isRecordingMeeting"
+      v-if="!props.isRecordingMeeting"
       class="flex items-center"
     >
       <h1 class="text-2xl">
@@ -22,18 +22,18 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
 import MicIcon from '@/assets/icons/microphone-solid.svg';
 import TimerControl from './TimerControl.vue';
 
-const isRecordingMeeting = ref(false);
+const props = defineProps<{ isRecordingMeeting: boolean }>();
+const emit = defineEmits<{ 'recording-status': [boolean] }>();
 const timerMessage = "This meeting has been going on for ";
 
-function startRecordingMeeting() {
-  isRecordingMeeting.value = true;
+function startRecordingMeeting(): void {
+  emit('recording-status', true);
 }
 
-function stopRecordingMeeting() {
-  isRecordingMeeting.value = false;
+function stopRecordingMeeting(): void {
+  emit('recording-status', false);
 }
 </script>

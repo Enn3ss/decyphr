@@ -22,9 +22,7 @@ import PlayIcon from '@/assets/icons/circle-play-solid.svg';
 import StopIcon from '@/assets/icons/circle-stop-solid.svg';
 
 const props = defineProps<{ message: string }>();
-
 const emit = defineEmits<{ 'timer-stopped': [] }>();
-
 const isPaused = ref(false);
 const intervalId = ref<number | null>(null);
 const elapsedTime = ref(0);
@@ -36,7 +34,7 @@ const timeDisplay = computed(() => {
   return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 });
 
-function startTimer() {
+function startTimer(): void {
   // setInterval is a browser API that allows functions to execute repeatedly at the given interval
   intervalId.value = window.setInterval(() => {
     if (!isPaused.value) {
@@ -45,11 +43,11 @@ function startTimer() {
   }, 1000);
 }
 
-function togglePause() {
+function togglePause(): void {
     isPaused.value = !isPaused.value;
 }
 
-function stopTimer() {
+function stopTimer(): void {
   if (intervalId.value) {
     clearInterval(intervalId.value);
     intervalId.value = null;
